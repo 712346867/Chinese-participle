@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chinese Tokenizer</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="elements">在下方输入中文文本</label><br>
+        <textarea id="elements" name="elements" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="分词并统计词频">
+    </form>
+    {% if token_freqs %}
+        <h2>词频统计：</h2>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>词</th>
+                <th>出现次数</th>
+            </tr>
+            {% for token, freq in token_freqs %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ token }}</td>
+                <td>{{ freq }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
